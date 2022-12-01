@@ -1,0 +1,18 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "isolatedModules": false,
+    "experimentalDecorators": true,
+    "sourceMap": false,
+    "types": ["svelte", "chrome", "jest", "node"],
+    "lib": ["es2017", "dom"],
+    "importsNotUsedAsValues": "remove"
+  },
+  "files": [
+    "./src/injected-script/main.ts",
+    "./src/content-script/main.ts",
+    "./src/popup/main.ts",
+    "./src/background-script/main.ts"
+  ]
+}

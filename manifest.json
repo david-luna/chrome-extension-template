@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "version": "0.0.1",
+  "name": "Extension template",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "background",
+    "webRequest",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "https://*.example.com/*"
+  ],
+  "background": {
+    "service_worker": "dist/background-script.js"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "dist/content-script.js"
+      ],
+      "matches": [
+        "https://*.example.com/*"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "dist/injected-script.js"
+      ],
+      "matches": [
+        "https://*.example.com/*"
+      ]
+    }
+  ],
+  "action": {
+    "default_title": "Extension template",
+    "default_popup": "dist/popup.html"
+  },
+  "icons": {
+    "19": "assets/enabled.png",
+    "38": "assets/enabled.png",
+    "16": "assets/enabled.png",
+    "48": "assets/enabled.png",
+    "128": "assets/enabled.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline'",
+    "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.contentsquare.net https://frontends.contentsquare.com; child-src 'self';"
+  }
+}
